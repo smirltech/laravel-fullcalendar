@@ -16,23 +16,6 @@ Or add the following to your composer.json's require section and `composer updat
 	"smirltech/laravel-fullcalendar": "~1.0.0"
 }
 ```
-
-### Laravel 5.4 (and earlier)
-
-Register the service provider in your `app.php` config file:
-
-```php
-SmirlTech\LaravelFullcalendar\ServiceProvider::class,
-```
-
-And optionally create an alias:
-
-```php
-'Calendar' => SmirlTech\LaravelFullcalendar\Facades\Calendar::class,
-
-```
-
-### Laravel 5.5+
 The provider and `Calendar` alias will be registered automatically.
 
 You will also need to include [fullcalendar.io](http://fullcalendar.io/)'s files in your HTML.
