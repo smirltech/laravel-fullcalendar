@@ -31,10 +31,18 @@ class Calendar
      * @var array
      */
     protected array $defaultOptions = [
-        'header' => [
+        'headerToolbar' => [
             'left' => 'prev,next today',
             'center' => 'title',
-            'right' => 'month,agendaWeek,agendaDay',
+            'right' => 'listWeek,dayGridMonth',
+        ],
+        'views'=> [
+            'listWeek'=> [
+                'buttonText'=> 'Semaine'
+            ],
+            'dayGridMonth'=>[
+                'buttonText'=> 'Mois',
+            ]
         ],
         'eventLimit' => true,
     ];
