@@ -1,6 +1,6 @@
 {
     "name": "smirltech/laravel-fullcalendar",
-    "description": "Laravel helper for FullCalendar.io",
+    "description": "Laravel 9 helper for FullCalendar.io",
     "license": "MIT",
     "authors": [
         {
