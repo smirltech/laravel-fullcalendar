@@ -1,5 +1,5 @@
 {
-    "name": "maddhatter/laravel-fullcalendar",
+    "name": "smirltech/laravel-fullcalendar",
     "description": "Laravel helper for FullCalendar.io",
     "license": "MIT",
     "authors": [
@@ -14,18 +14,23 @@
     },
     "autoload": {
         "psr-0": {
-            "MaddHatter\\LaravelFullcalendar": "src/"
+            "SmirlTech\\LaravelFullcalendar": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "MaddHatter\\LaravelFullcalendar\\ServiceProvider"
+                "SmirlTech\\LaravelFullcalendar\\ServiceProvider"
             ],
             "aliases": {
-                "Calendar": "MaddHatter\\LaravelFullcalendar\\Facades\\Calendar"
+                "Calendar": "SmirlTech\\LaravelFullcalendar\\Facades\\Calendar"
             }
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    }
 }
