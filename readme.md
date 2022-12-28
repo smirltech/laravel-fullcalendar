@@ -1,15 +1,15 @@
 # Laravel 5 Full Calendar Helper
 
-[![Latest Stable Version](https://poser.pugx.org/maddhatter/laravel-fullcalendar/v/stable)](https://packagist.org/packages/maddhatter/laravel-fullcalendar) [![Total Downloads](https://poser.pugx.org/maddhatter/laravel-fullcalendar/downloads)](https://packagist.org/packages/maddhatter/laravel-fullcalendar) [![Latest Unstable Version](https://poser.pugx.org/maddhatter/laravel-fullcalendar/v/unstable)](https://packagist.org/packages/maddhatter/laravel-fullcalendar) [![License](https://poser.pugx.org/maddhatter/laravel-fullcalendar/license)](https://packagist.org/packages/maddhatter/laravel-fullcalendar)
+[![Latest Stable Version](https://poser.pugx.org/smirltech/laravel-fullcalendar/v/stable)](https://packagist.org/packages/smirltech/laravel-fullcalendar) [![Total Downloads](https://poser.pugx.org/smirltech/laravel-fullcalendar/downloads)](https://packagist.org/packages/smirltech/laravel-fullcalendar) [![Latest Unstable Version](https://poser.pugx.org/smirltech/laravel-fullcalendar/v/unstable)](https://packagist.org/packages/smirltech/laravel-fullcalendar) [![License](https://poser.pugx.org/smirltech/laravel-fullcalendar/license)](https://packagist.org/packages/smirltech/laravel-fullcalendar)
 
-***For Laravel 4.2: use the [laravel-4 branch](https://github.com/maddhatter/laravel-fullcalendar/tree/laravel-4)***
+***For Laravel 4.2: use the [laravel-4 branch](https://github.com/smirltech/laravel-fullcalendar/tree/laravel-4)***
 
 This is a simple helper package to make generating [http://fullcalendar.io](http://fullcalendar.io) in Laravel apps easier.
 
 ## Installing
 Require the package with composer using the following command:
 
-    composer require maddhatter/laravel-fullcalendar
+    composer require smirltech/laravel-fullcalendar
 
 Or add the following to your composer.json's require section and `composer update`
 
