@@ -229,6 +229,6 @@ Then to display, add the following code to your View:
 
 The `script()` can be placed anywhere after `calendar()`, and must be after fullcalendar was included.
 
-This will generate (in February 2015):
+This will generate (in February 2022):
 
 ![](img.png)
