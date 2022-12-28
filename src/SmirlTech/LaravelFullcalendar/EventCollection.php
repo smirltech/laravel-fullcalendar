@@ -45,7 +45,7 @@ class EventCollection
         return array_merge($eventArray, $eventOptions, $customAttributes);
     }
 
-    private function getEventId(IdentifiableEvent $event): int|string|null
+    private function getEventId(Event $event): int|string|null
     {
         return $event->getId();
     }

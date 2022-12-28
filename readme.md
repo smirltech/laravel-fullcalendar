@@ -13,12 +13,14 @@ Or add the following to your composer.json's require section and `composer updat
 
 ```json
 "require": {
-	"smirltech/laravel-fullcalendar": "~1.0.0"
+	"smirltech/laravel-fullcalendar": "~1.0.2"
 }
 ```
 The provider and `Calendar` alias will be registered automatically.
 
-You will also need to include [fullcalendar.io](http://fullcalendar.io/)'s files in your HTML.
+You won't need to include [fullcalendar.io](http://fullcalendar.io/)'s files in your HTML, version 6.0.2 is included in this package.
+
+
 
 ## Usage
 
@@ -240,4 +242,4 @@ The `script()` can be placed anywhere after `calendar()`, and must be after full
 
 This will generate (in February 2015):
 
-![](http://i.imgur.com/qjgVhCY.png)
+![](img.png)

@@ -2,8 +2,10 @@
 
 use ArrayAccess;
 use DateTime;
+use Exception;
 use Illuminate\Support\Str;
 use Illuminate\View\Factory;
+use Illuminate\View\View;
 
 class Calendar
 {
@@ -71,7 +73,7 @@ class Calendar
      * @param string|null $id event Id
      * @param array $options
      * @return SimpleEvent
-     * @throws \Exception
+     * @throws Exception
      */
     public static function event(string $title, string $isAllDay, DateTime|string $start, DateTime|string $end, string $id = null, array $options = []): SimpleEvent
     {
@@ -91,9 +93,9 @@ class Calendar
     /**
      * Get the <script> block to render the calendar (as a View)
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
-    public function script(): \Illuminate\View\View
+    public function script(): View
     {
         $options = $this->getOptionsJson();
 
@@ -102,6 +104,17 @@ class Calendar
             'options' => $options,
         ]);
     }
+
+    /**
+     * Get the <script> block to render the calendar (as a View)
+     *
+     * @return string
+     */
+    public function scriptToHtml(): string
+    {
+        return $this->script()->toHtml();
+    }
+
 
     /**
      * Customize the ID of the generated <div>
