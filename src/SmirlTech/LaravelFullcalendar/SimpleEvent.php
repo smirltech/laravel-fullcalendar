@@ -11,61 +11,27 @@ use DateTime;
  */
 class SimpleEvent implements IdentifiableEvent
 {
-
     /**
-     * @var string|int|null
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $title;
-
-    /**
-     * @var bool
-     */
-    public $isAllDay;
-
-    /**
-     * @var DateTime
-     */
-    public $start;
-
-    /**
-     * @var DateTime
-     */
-    public $end;
-
-    /**
-     * @var array
-     */
-    private $options;
-
-    /**
-     * @param string          $title
-     * @param bool            $isAllDay
-     * @param string|DateTime $start If string, must be valid datetime format: http://bit.ly/1z7QWbg
-     * @param string|DateTime $end   If string, must be valid datetime format: http://bit.ly/1z7QWbg
+     * @param string $title
+     * @param bool $isAllDay
+     * @param DateTime|string $start If string, must be valid datetime format: http://bit.ly/1z7QWbg
+     * @param DateTime|string $end If string, must be valid datetime format: http://bit.ly/1z7QWbg
      * @param int|string|null $id
-     * @param array           $options
+     * @param array $options
+     * @throws \Exception
      */
-    public function __construct($title, $isAllDay, $start, $end, $id = null, $options = [])
+    public function __construct(public string $title, public  bool $isAllDay, public DateTime|string $start, public DateTime|string $end, public  null|int|string $id = null, public  array $options = [])
     {
-        $this->title    = $title;
-        $this->isAllDay = $isAllDay;
         $this->start    = $start instanceof DateTime ? $start : new DateTime($start);
         $this->end      = $start instanceof DateTime ? $end : new DateTime($end);
-        $this->id       = $id;
-        $this->options  = $options;
     }
 
     /**
      * Get the event's id number
      *
-     * @return int
+     * @return int|string|null
      */
-    public function getId()
+    public function getId(): int|string|null
     {
         return $this->id;
     }
@@ -75,7 +41,7 @@ class SimpleEvent implements IdentifiableEvent
      *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -85,7 +51,7 @@ class SimpleEvent implements IdentifiableEvent
      *
      * @return bool
      */
-    public function isAllDay()
+    public function isAllDay(): bool
     {
         return $this->isAllDay;
     }
@@ -95,7 +61,7 @@ class SimpleEvent implements IdentifiableEvent
      *
      * @return DateTime
      */
-    public function getStart()
+    public function getStart(): DateTime
     {
         return $this->start;
     }
@@ -105,7 +71,7 @@ class SimpleEvent implements IdentifiableEvent
      *
      * @return DateTime
      */
-    public function getEnd()
+    public function getEnd(): DateTime
     {
         return $this->end;
     }
@@ -115,7 +81,7 @@ class SimpleEvent implements IdentifiableEvent
      *
      * @return array
      */
-    public function getEventOptions()
+    public function getEventOptions(): array
     {
         return $this->options;
     }

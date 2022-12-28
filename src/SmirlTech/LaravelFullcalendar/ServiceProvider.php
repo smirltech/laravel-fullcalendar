@@ -10,7 +10,7 @@ class ServiceProvider extends BaseServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->app->bind('laravel-fullcalendar', function ($app) {
             return $app->make('SmirlTech\LaravelFullcalendar\Calendar');
@@ -27,7 +27,7 @@ class ServiceProvider extends BaseServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return ['laravel-fullcalendar'];
     }

@@ -9,27 +9,27 @@ interface Event
      *
      * @return string
      */
-    public function getTitle();
+    public function getTitle(): string;
 
     /**
      * Is it an all day event?
      *
      * @return bool
      */
-    public function isAllDay();
+    public function isAllDay(): bool;
 
     /**
      * Get the start time
      *
      * @return DateTime
      */
-    public function getStart();
+    public function getStart(): DateTime;
 
     /**
      * Get the end time
      *
      * @return DateTime
      */
-    public function getEnd();
+    public function getEnd(): DateTime;
 
 }

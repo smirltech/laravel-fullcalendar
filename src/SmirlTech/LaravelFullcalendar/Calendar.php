@@ -2,6 +2,7 @@
 
 use ArrayAccess;
 use DateTime;
+use Illuminate\Support\Str;
 use Illuminate\View\Factory;
 
 class Calendar
@@ -10,24 +11,24 @@ class Calendar
     /**
      * @var Factory
      */
-    protected $view;
+    protected Factory $view;
 
     /**
      * @var EventCollection
      */
-    protected $eventCollection;
+    protected EventCollection $eventCollection;
 
     /**
      * @var string
      */
-    protected $id;
+    protected string $id;
 
     /**
      * Default options array
      *
      * @var array
      */
-    protected $defaultOptions = [
+    protected array $defaultOptions = [
         'header' => [
             'left' => 'prev,next today',
             'center' => 'title',
@@ -41,14 +42,14 @@ class Calendar
      *
      * @var array
      */
-    protected $userOptions = [];
+    protected array $userOptions = [];
 
     /**
      * User defined callback options
      *
      * @var array
      */
-    protected $callbacks = [];
+    protected array $callbacks = [];
 
     /**
      * @param Factory         $view
@@ -63,15 +64,16 @@ class Calendar
     /**
      * Create an event DTO to add to a calendar
      *
-     * @param string          $title
-     * @param string          $isAllDay
-     * @param string|DateTime $start If string, must be valid datetime format: http://bit.ly/1z7QWbg
-     * @param string|DateTime $end   If string, must be valid datetime format: http://bit.ly/1z7QWbg
-     * @param string          $id    event Id
-     * @param array           $options
+     * @param string $title
+     * @param string $isAllDay
+     * @param DateTime|string $start If string, must be valid datetime format: http://bit.ly/1z7QWbg
+     * @param DateTime|string $end If string, must be valid datetime format: http://bit.ly/1z7QWbg
+     * @param string|null $id event Id
+     * @param array $options
      * @return SimpleEvent
+     * @throws \Exception
      */
-    public static function event($title, $isAllDay, $start, $end, $id = null, $options = [])
+    public static function event(string $title, string $isAllDay, DateTime|string $start, DateTime|string $end, string $id = null, array $options = []): SimpleEvent
     {
         return new SimpleEvent($title, $isAllDay, $start, $end, $id, $options);
     }
@@ -81,7 +83,7 @@ class Calendar
      *
      * @return string
      */
-    public function calendar()
+    public function calendar(): string
     {
         return '<div id="calendar-' . $this->getId() . '"></div>';
     }
@@ -91,7 +93,7 @@ class Calendar
      *
      * @return \Illuminate\View\View
      */
-    public function script()
+    public function script(): \Illuminate\View\View
     {
         $options = $this->getOptionsJson();
 
@@ -107,7 +109,7 @@ class Calendar
      * @param string $id
      * @return $this
      */
-    public function setId($id)
+    public function setId(string $id): static
     {
         $this->id = $id;
 
@@ -120,13 +122,13 @@ class Calendar
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         if ( ! empty($this->id)) {
             return $this->id;
         }
 
-        $this->id = str_random(8);
+        $this->id = Str::random(8);
 
         return $this->id;
     }
@@ -138,7 +140,7 @@ class Calendar
      * @param array $customAttributes
      * @return $this
      */
-    public function addEvent(Event $event, array $customAttributes = [])
+    public function addEvent(Event $event, array $customAttributes = []): static
     {
         $this->eventCollection->push($event, $customAttributes);
 
@@ -148,11 +150,11 @@ class Calendar
     /**
      * Add multiple events
      *
-     * @param array|ArrayAccess $events
+     * @param ArrayAccess|array $events
      * @param array $customAttributes
      * @return $this
      */
-    public function addEvents($events, array $customAttributes = [])
+    public function addEvents(ArrayAccess|array $events, array $customAttributes = []): static
     {
         foreach ($events as $event) {
             $this->eventCollection->push($event, $customAttributes);
@@ -167,7 +169,7 @@ class Calendar
      * @param array $options
      * @return $this
      */
-    public function setOptions(array $options)
+    public function setOptions(array $options): static
     {
         $this->userOptions = $options;
 
@@ -179,7 +181,7 @@ class Calendar
      *
      * @return array
      */
-    public function getOptions()
+    public function getOptions(): array
     {
         return array_merge($this->defaultOptions, $this->userOptions);
     }
@@ -190,7 +192,7 @@ class Calendar
      * @param array $callbacks
      * @return $this
      */
-    public function setCallbacks(array $callbacks)
+    public function setCallbacks(array $callbacks): static
     {
         $this->callbacks = $callbacks;
 
@@ -202,7 +204,7 @@ class Calendar
      *
      * @return array
      */
-    public function getCallbacks()
+    public function getCallbacks(): array
     {
         return $this->callbacks;
     }
@@ -212,7 +214,7 @@ class Calendar
      *
      * @return string
      */
-    public function getOptionsJson()
+    public function getOptionsJson(): string
     {
         $options      = $this->getOptions();
         $placeholders = $this->getCallbackPlaceholders();
@@ -238,7 +240,7 @@ class Calendar
      *
      * @return array
      */
-    protected function getCallbackPlaceholders()
+    protected function getCallbackPlaceholders(): array
     {
         $callbacks    = $this->getCallbacks();
         $placeholders = [];
@@ -257,7 +259,7 @@ class Calendar
      * @param $placeholders
      * @return string
      */
-    protected function replaceCallbackPlaceholders($json, $placeholders)
+    protected function replaceCallbackPlaceholders($json, $placeholders): string
     {
         $search  = [];
         $replace = [];
