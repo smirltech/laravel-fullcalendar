@@ -1,4 +1,4 @@
-# Laravel 5 Full Calendar Helper
+# Laravel 9 Full Calendar Helper
 
 [![Latest Stable Version](https://poser.pugx.org/smirltech/laravel-fullcalendar/v/stable)](https://packagist.org/packages/smirltech/laravel-fullcalendar) [![Total Downloads](https://poser.pugx.org/smirltech/laravel-fullcalendar/downloads)](https://packagist.org/packages/smirltech/laravel-fullcalendar) [![Latest Unstable Version](https://poser.pugx.org/smirltech/laravel-fullcalendar/v/unstable)](https://packagist.org/packages/smirltech/laravel-fullcalendar) [![License](https://poser.pugx.org/smirltech/laravel-fullcalendar/license)](https://packagist.org/packages/smirltech/laravel-fullcalendar)
 
