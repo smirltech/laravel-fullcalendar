@@ -1,6 +1,6 @@
 {
     "name": "smirltech/laravel-fullcalendar",
-    "description": "Laravel 9 helper for FullCalendar.io",
+    "description": "Laravel 10 helper for FullCalendar.io",
     "license": "MIT",
     "authors": [
         {
@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/contracts": "^10.0|^9.0|^8.0"
+        "laravel/framework": "^10.0|^9.0|^8.0"
     },
     "autoload": {
         "psr-0": {
